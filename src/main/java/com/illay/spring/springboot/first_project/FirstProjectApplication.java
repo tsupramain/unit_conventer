@@ -10,4 +10,5 @@ public class FirstProjectApplication {
         SpringApplication.run(FirstProjectApplication.class, args);
     }
     // I have just finished my first project
+
 }
