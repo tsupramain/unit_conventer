@@ -23,7 +23,7 @@ public class ConvertController {
     }
 
     @PostMapping("/length")
-    public String handleConversion(@RequestParam("originalValue") double length,
+    public String handleConversion(@RequestParam("originalValue") String length,
                                    @RequestParam("type") String type,
                                    @RequestParam("type2") String type2, Model model) {
         model.addAttribute("activePage", "length");
@@ -31,6 +31,10 @@ public class ConvertController {
         model.addAttribute("originalValue", length);
         model.addAttribute("type", type);
         model.addAttribute("type2", type2);
+
+        if (length.isEmpty() || type.isEmpty() || type2.isEmpty()) {
+            return "access-denied";
+        }
 
         if (convertImp.convertLength(length, type, type2).startsWith("Error")) {
             return "access-denied";
@@ -56,6 +60,10 @@ public class ConvertController {
         model.addAttribute("type", type);
         model.addAttribute("type2", type2);
 
+        if (temperature.isEmpty() || type.isEmpty() || type2.isEmpty()) {
+            return "access-denied";
+        }
+
         model.addAttribute("result", convertImp.convertTemperature(temperature, type, type2));
         return "after-convention";
     }
@@ -78,7 +86,14 @@ public class ConvertController {
         model.addAttribute("type", type);
         model.addAttribute("type2", type2);
 
-        model.addAttribute("result", convertImp.convertWeght(weight, type, type2));
+        if (weight.isEmpty() || type.isEmpty() || type2.isEmpty()) {
+            return "access-denied";
+        }
+        if (convertImp.convertWeght(weight, type, type2).startsWith("Error")) {
+            return "access-denied";
+        } else {
+            model.addAttribute("result", convertImp.convertWeght(weight, type, type2));
+        }
         return "after-convention";
     }
 }

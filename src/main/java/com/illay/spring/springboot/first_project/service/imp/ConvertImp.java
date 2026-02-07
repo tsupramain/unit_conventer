@@ -11,12 +11,11 @@ public class ConvertImp implements ConvertInterface {
 
     @Override
     public String convertWeght(String value, String a, String b) {
+        double perseweight = Double.parseDouble(value);
 
         try {
             Weight weight = Weight.valueOf(a.toUpperCase());
             Weight weight2 = Weight.valueOf(b.toUpperCase());
-
-            double perseweight = Double.parseDouble(value);
 
             double result = perseweight * weight.getMultiplier()/(weight2.getMultiplier());
             return String.valueOf(result);
@@ -29,12 +28,13 @@ public class ConvertImp implements ConvertInterface {
 
 
     @Override
-    public String convertLength(double value, String from, String to) {
+    public String convertLength(String value, String from, String to) {
+        Double length = Double.parseDouble(value);
         try {
             Lenght fromUnit = Lenght.valueOf(from.toUpperCase().trim());
             Lenght toUnit = Lenght.valueOf(to.toUpperCase().trim());
 
-            double result = value * fromUnit.getMultiplier() / toUnit.getMultiplier();
+            double result = length * fromUnit.getMultiplier() / toUnit.getMultiplier();
             return String.valueOf(result);
 
         } catch (IllegalArgumentException e) {
