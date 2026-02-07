@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>conventor</title>
+</head>
+<body>
+<h2>Unit Converter</h2>
+<br>
+<nav>
+    <a href="/length" th:class="${activePage == 'length' ? 'active' : ''}">Length</a>
+    <a href="/weight" th:class="${activePage == 'weight' ? 'active' : ''}">Weight</a>
+    <a href="/temperature" th:class="${activePage == 'temperature' ? 'active' : ''}">Temperature</a>
+</nav>
+<br>
+<h4>Enter the lenght to convert</h4>
+
+<form th:action="@{/length}" method="post">
+    <input type="number" min="0" name="originalValue">
+    <br>
+    <H4>Unit to Convert from</H4>
+    <input type="text"  pattern="[A-Za-z]+"  oninput="this.value = this.value.replace(/[0-9]/g, '')" name="type">
+    <br>
+    <H4>Unit to Convert to</H4>
+    <input type="text" pattern="[A-Za-z]+"  oninput="this.value = this.value.replace(/[0-9]/g, '')" name="type2">
+    <br>
+    <button type="submit" class="convert-button">Convert</button>
+</form>
+
+</body>
+</html>
