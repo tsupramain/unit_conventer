@@ -61,7 +61,6 @@ input:focus {
     background-color: rgba(0, 0, 0, 0.02);
 }
 .convert-button {
-    /* Додаємо ці рядки, щоб скинути налаштування браузера */
     -webkit-appearance: none;
     appearance: none;
     display: inline-block;
@@ -77,13 +76,13 @@ input:focus {
     border: 3px solid #000000;
     border-radius: 12px;
 
-    /* Важливо: скидаємо ширину та марджини, які могли прийти від загального input */
+
     width: auto;
     margin-bottom: 0;
 
     transition: all 0.2s ease-in-out;
     cursor: pointer;
-    line-height: normal; /* Щоб текст був по центру */
+    line-height: normal;
 }
 .convert-button:hover {
     background-color: rgba(0, 0, 0, 0.05);

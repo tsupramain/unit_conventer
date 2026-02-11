@@ -35,7 +35,6 @@ public class ConvertController {
         if (length.isEmpty() || type.isEmpty() || type2.isEmpty()) {
             return "access-denied";
         }
-
         if (convertImp.convertLength(length, type, type2).startsWith("Error")) {
             return "access-denied";
         } else {
@@ -63,8 +62,11 @@ public class ConvertController {
         if (temperature.isEmpty() || type.isEmpty() || type2.isEmpty()) {
             return "access-denied";
         }
-
-        model.addAttribute("result", convertImp.convertTemperature(temperature, type, type2));
+        if (convertImp.convertTemperature(temperature, type, type2).startsWith("Error")) {
+            return "access-denied";
+        } else {
+            model.addAttribute("result", convertImp.convertTemperature(temperature, type, type2));
+        }
         return "after-convention";
     }
 
