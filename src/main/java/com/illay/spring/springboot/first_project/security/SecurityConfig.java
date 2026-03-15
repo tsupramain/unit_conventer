@@ -31,8 +31,6 @@ public class SecurityConfig {
                 .formLogin(form -> form
                         .defaultSuccessUrl("/length", true)
                         .permitAll());
-
-
         return http.build();
     }
 

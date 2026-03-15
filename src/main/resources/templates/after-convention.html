@@ -7,7 +7,6 @@
 </head>
 <body>
 <h2>Unit Conventor</h2>
-
 <br>
 <nav>
     <a href="/length" th:class="${activePage == 'length' ? 'active' : ''}">Length</a>
@@ -15,7 +14,6 @@
     <a href="/temperature" th:class="${activePage == 'temperature' ? 'active' : ''}">Temperature</a>
 </nav>
 <br>
-
 <form action="/afterconvention" method="get">
     <div class="result-display">
         <h4>Result for your calculation</h4>
@@ -28,10 +26,7 @@
             <a th:href="@{/{path}(path=${activePage})}" class="reset-button">Reset</a>
         </p>
     </div>
-
 </form>
-
-
 </body>
 </html>
 
