@@ -30,11 +30,7 @@ public class SecurityConfig {
                 )
                 .formLogin(form -> form
                         .defaultSuccessUrl("/length", true)
-                        .permitAll())
-                .exceptionHandling
-                        (exception -> exception
-                                .accessDeniedPage("/access-denied")
-                        );
+                        .permitAll());
 
 
         return http.build();
